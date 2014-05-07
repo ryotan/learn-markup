@@ -2,7 +2,7 @@
 # Blog settings
 ###
 
-# Time.zone = "UTC"
+Time.zone = "Tokyo"
 
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
@@ -10,18 +10,21 @@ activate :blog do |blog|
 
   # blog.permalink = "{year}/{month}/{day}/{title}.html"
   # Matcher for blog source files
-  # blog.sources = "{year}-{month}-{day}-{title}.html"
+  # ブログのソースは、blogディレクトリ配下に日付でディレクトリを分けて置くことにする。
+  blog.sources = "blog/{year}/{month}/{day}/{title}.html"
   # blog.taglink = "tags/{tag}.html"
-  # blog.layout = "layout"
+  # テンプレート系は、templatesディレクトリに配置する。
+  blog.layout = "templates/layout"
+  blog.tag_template = "templates/tag.html"
+  blog.calendar_template = "templates/calendar.html"
   # blog.summary_separator = /(READMORE)/
   # blog.summary_length = 250
-  # blog.year_link = "{year}.html"
-  # blog.month_link = "{year}/{month}.html"
-  # blog.day_link = "{year}/{month}/{day}.html"
-  # blog.default_extension = ".markdown"
-
-  blog.tag_template = "tag.html"
-  blog.calendar_template = "calendar.html"
+  # 日付毎とかのページは、ディレクトリでアクセスできるようにする。
+  blog.year_link = "{year}/index.html"
+  blog.month_link = "{year}/{month}/index.html"
+  blog.day_link = "{year}/{month}/{day}/index.html"
+  # .markdownは長いから、拡張子は.mdにする。
+  blog.default_extension = ".md"
 
   # Enable pagination
   # blog.paginate = true
@@ -29,7 +32,7 @@ activate :blog do |blog|
   # blog.page_link = "page/{num}"
 end
 
-page "/feed.xml", layout: false
+page "/atom.xml", layout: false
 
 ###
 # Compass
