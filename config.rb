@@ -6,17 +6,18 @@ Time.zone = "Tokyo"
 
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
-  # blog.prefix = "blog"
+  blog.prefix = "blog"
 
   # blog.permalink = "{year}/{month}/{day}/{title}.html"
   # Matcher for blog source files
   # ブログのソースは、blogディレクトリ配下に日付でディレクトリを分けて置くことにする。
-  blog.sources = "blog/{year}/{month}/{day}/{title}.html"
-  # blog.taglink = "tags/{tag}.html"
-  # テンプレート系は、templatesディレクトリに配置する。
-  blog.layout = "templates/layout"
-  blog.tag_template = "templates/tag.html"
-  blog.calendar_template = "templates/calendar.html"
+  blog.sources = "{year}/{month}/{day}/{title}.html"
+  # タグ毎のページには、ディレクトリでアクセスできるようにする。
+  blog.taglink = "tags/{tag}/index.html"
+  blog.layout = "blog"
+  # proxyで生成されるページのテンプレートは、blog/templatesディレクトリに配置する。
+  blog.tag_template = "blog/templates/tag.html"
+  blog.calendar_template = "blog/templates/calendar.html"
   # blog.summary_separator = /(READMORE)/
   # blog.summary_length = 250
   # 日付毎とかのページは、ディレクトリでアクセスできるようにする。
@@ -32,7 +33,10 @@ activate :blog do |blog|
   # blog.page_link = "page/{num}"
 end
 
-page "/atom.xml", layout: false
+# blogのatomが生成されるので、atom.xmlは、blogの配下にする。
+page "/blog/atom.xml", layout: false
+
+activate :directory_indexes
 
 ###
 # Compass
@@ -81,11 +85,11 @@ page "/atom.xml", layout: false
 #   end
 # end
 
-set :css_dir, 'css'
+set :css_dir, 'stylesheets'
 
-set :js_dir, 'js'
+set :js_dir, 'javascripts'
 
-set :images_dir, 'img'
+set :images_dir, 'images'
 
 # Build-specific configuration
 configure :build do
