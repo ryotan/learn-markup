@@ -91,17 +91,25 @@ set :js_dir, 'javascripts'
 
 set :images_dir, 'images'
 
+# For example, change the Compass output style for deployment
+activate :minify_css
+
+# Minify Javascript on build
+activate :minify_javascript
+
+# Minify HTML on build
+activate :minify_html
+
+# Enable cache buster
+activate :asset_hash
+
+configure :development do
+  # Evable Livereload
+  activate :livereload
+end
+
 # Build-specific configuration
 configure :build do
-  # For example, change the Compass output style for deployment
-  # activate :minify_css
-
-  # Minify Javascript on build
-  # activate :minify_javascript
-
-  # Enable cache buster
-  # activate :asset_hash
-
   # Use relative URLs
   # activate :relative_assets
 
