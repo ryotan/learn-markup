@@ -85,6 +85,8 @@ activate :directory_indexes
 #   end
 # end
 
+set :slim, { format: :html5 }
+
 set :css_dir, 'stylesheets'
 
 set :js_dir, 'javascripts'

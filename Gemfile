@@ -13,3 +13,5 @@ gem "builder"
 # Faster JavaScript compiler
 gem 'therubyracer'
 gem 'oj'
+
+gem 'slim'
