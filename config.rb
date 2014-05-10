@@ -36,8 +36,6 @@ end
 # blogのatomが生成されるので、atom.xmlは、blogの配下にする。
 page "/blog/atom.xml", layout: false
 
-activate :directory_indexes
-
 ###
 # Compass
 ###
@@ -76,7 +74,7 @@ activate :directory_indexes
 # activate :automatic_image_sizes
 
 # Reload the browser automatically whenever files change
-# activate :livereload
+activate :livereload
 
 # Methods defined in the helpers block are available in templates
 # helpers do
@@ -93,6 +91,8 @@ set :js_dir, 'javascripts'
 
 set :images_dir, 'images'
 
+set :markdown_engine, :redcarpet
+
 # For example, change the Compass output style for deployment
 activate :minify_css
 
@@ -104,11 +104,6 @@ activate :minify_html
 
 # Enable cache buster
 activate :asset_hash
-
-configure :development do
-  # Evable Livereload
-  activate :livereload
-end
 
 # Build-specific configuration
 configure :build do
