@@ -9,32 +9,37 @@ activate :blog do |blog|
   blog.prefix = "blog"
 
   # blog.permalink = "{year}/{month}/{day}/{title}.html"
+
   # Matcher for blog source files
   # ブログのソースは、blogディレクトリ配下に日付でディレクトリを分けて置くことにする。
   blog.sources = "{year}/{month}/{day}/{title}.html"
+
   # タグ毎のページには、ディレクトリでアクセスできるようにする。
   blog.taglink = "tags/{tag}/index.html"
+
+  # ブログ記事用のレイアウトをlayouts/blogに用意する。
   blog.layout = "blog"
+
   # proxyで生成されるページのテンプレートは、blog/templatesディレクトリに配置する。
   blog.tag_template = "blog/templates/tag.html"
   blog.calendar_template = "blog/templates/calendar.html"
-  # blog.summary_separator = /(READMORE)/
-  # blog.summary_length = 250
+
   # 日付毎とかのページは、ディレクトリでアクセスできるようにする。
   blog.year_link = "{year}/index.html"
   blog.month_link = "{year}/{month}/index.html"
   blog.day_link = "{year}/{month}/{day}/index.html"
+
   # .markdownは長いから、拡張子は.mdにする。
   blog.default_extension = ".md"
+
+  # blog.summary_separator = /(READMORE)/
+  # blog.summary_length = 250
 
   # Enable pagination
   # blog.paginate = true
   # blog.per_page = 10
   # blog.page_link = "page/{num}"
 end
-
-# blogのatomが生成されるので、atom.xmlは、blogの配下にする。
-page "/blog/atom.xml", layout: false
 
 ###
 # Compass
@@ -52,15 +57,18 @@ page "/blog/atom.xml", layout: false
 # Per-page layout changes:
 #
 # With no layout
-# page "/path/to/file.html", layout: false
 #
+# Atomのファイルにはレイアウト適用しないで。
+page "/blog/atom.xml", layout: false
+
+
 # With alternative layout
-# page "/path/to/file.html", layout: :otherlayout
 #
 # A path which all have the same layout
-# with_layout :admin do
-#   page "/admin/*"
-# end
+# ブログ以外のページのレイアウトは、layouts/pageにする。
+with_layout :page do
+  page "/pages/*"
+end
 
 # Proxy pages (http://middlemanapp.com/dynamic-pages/)
 # proxy "/this-page-has-no-template.html", "/template-file.html", locals: {
