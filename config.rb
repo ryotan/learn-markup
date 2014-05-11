@@ -82,7 +82,7 @@ end
 # activate :automatic_image_sizes
 
 # Reload the browser automatically whenever files change
-activate :livereload
+# activate :livereload
 
 # Methods defined in the helpers block are available in templates
 # helpers do
@@ -99,25 +99,55 @@ set :js_dir, 'javascripts'
 
 set :images_dir, 'images'
 
+# Use Redcarpet
 set :markdown_engine, :redcarpet
+# Setup markdown options
+set :markdown,
+    fenced_code_blocks: true,
+    smarty_pants: true,
+    no_intra_emphasis: true,
+    tables: true,
+    autolink: true,
+    strikethrough: true,
+    lax_spacing: true,
+    space_after_headers: true,
+    superscript: true
 
-# For example, change the Compass output style for deployment
-activate :minify_css
+# Syntax Highlight
+activate :syntax,
+    css_class: 'highlight',
+    inline_theme: nil,
+    line_numbers: true
 
-# Minify Javascript on build
-activate :minify_javascript
+#activate :autoprefixer
 
-# Minify HTML on build
-activate :minify_html
-
-# Enable cache buster
-activate :asset_hash
+after_configuration do
+  @bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
+  sprockets.append_path File.join "#{root}", @bower_config["directory"]
+end
 
 # Build-specific configuration
 configure :build do
   # Use relative URLs
-  # activate :relative_assets
+  activate :relative_assets
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
+
+  # For example, change the Compass output style for deployment
+  activate :minify_css
+
+  # Minify Javascript on build
+  activate :minify_javascript
+
+  # Minify HTML on build
+  activate :minify_html
+
+  # Enable cache buster
+  activate :asset_hash
+end
+
+configure :development do
+  # Reload the browser automatically whenever files change
+  activate :livereload
 end

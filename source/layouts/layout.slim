@@ -11,6 +11,7 @@ html
         = ' - ' + current_article.title unless current_article.nil?
 
     = feed_tag :atom, "#{blog.options.prefix.to_s}/atom.xml", title: "Atom Feed"
+    = stylesheet_link_tag "itr0-blog"
 
   body
     #main[role="main"]
@@ -37,3 +38,4 @@ html
           li
             = link_to "#{year} (#{articles.size})", blog_year_path(year)
 
+  = javascript_include_tag "itr0-blog"

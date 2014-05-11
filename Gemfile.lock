@@ -8,6 +8,8 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     addressable (2.3.6)
+    autoprefixer-rails (1.1.20140510)
+      execjs
     builder (3.2.2)
     chunky_png (1.3.1)
     coffee-script (2.2.0)
@@ -27,6 +29,8 @@ GEM
     eventmachine (1.0.3)
     execjs (2.0.2)
     ffi (1.9.3)
+    font-awesome-sass (4.0.3.1)
+      sass (~> 3.2)
     fssm (0.2.10)
     haml (4.0.5)
       tilt
@@ -54,6 +58,10 @@ GEM
       middleman-sprockets (>= 3.1.2)
       sass (>= 3.2.17, < 4.0)
       uglifier (~> 2.5)
+    middleman-autoprefixer (1.1.2)
+      autoprefixer-rails (~> 1.1.20140302)
+      middleman-core (~> 3.2)
+      middleman-sprockets (~> 3.2)
     middleman-blog (3.5.2)
       addressable (~> 2.3.5)
       middleman-core (~> 3.2)
@@ -82,6 +90,9 @@ GEM
       sprockets (~> 2.2)
       sprockets-helpers (~> 1.1.0)
       sprockets-sass (~> 1.1.0)
+    middleman-syntax (2.0.0)
+      middleman-core (~> 3.2)
+      rouge (~> 1.0)
     minitest (4.7.5)
     multi_json (1.10.0)
     oj (2.9.0)
@@ -103,6 +114,7 @@ GEM
       ffi (>= 0.5.0)
     redcarpet (3.1.1)
     ref (1.0.5)
+    rouge (1.3.4)
     sass (3.2.19)
     slim (2.0.2)
       temple (~> 0.6.6)
@@ -135,10 +147,13 @@ PLATFORMS
 
 DEPENDENCIES
   builder
+  font-awesome-sass
   middleman
+  middleman-autoprefixer
   middleman-blog
   middleman-livereload
   middleman-minify-html
+  middleman-syntax
   oj
   redcarpet
   slim

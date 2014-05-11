@@ -1,0 +1,8 @@
+{
+  "name": "itr0-middleman-blog-theme",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "foundation": "~5.2.2"
+  }
+}
