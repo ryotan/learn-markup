@@ -1,143 +1,110 @@
-###
+################################################################################
 # Blog settings
-###
+################################################################################
 
-Time.zone = "Tokyo"
+Time.zone = 'Tokyo'
 
-activate :blog do |blog|
-  # This will add a prefix to all links, template references and source paths
-  blog.prefix = "blog"
-
-  # blog.permalink = "{year}/{month}/{day}/{title}.html"
-
-  # Matcher for blog source files
-  # ブログのソースは、blogディレクトリ配下に日付でディレクトリを分けて置くことにする。
-  blog.sources = "{year}/{month}/{day}/{title}.html"
-
-  # タグ毎のページには、ディレクトリでアクセスできるようにする。
-  blog.taglink = "tags/{tag}/index.html"
+activate :blog, {
+  # ブログ記事は、/blogで公開する。ソースも/blog配下になる。
+  prefix: '/blog',
+  sources: '/{year}/{month}/{day}/{title}.html',
 
   # ブログ記事用のレイアウトをlayouts/blogに用意する。
-  blog.layout = "blog"
+  layout: 'blog',
 
   # proxyで生成されるページのテンプレートは、blog/templatesディレクトリに配置する。
-  blog.tag_template = "blog/templates/tag.html"
-  blog.calendar_template = "blog/templates/calendar.html"
+  calendar_template: 'blog/templates/calendar.html',
+  tag_template:      'blog/templates/tag.html',
 
   # 日付毎とかのページは、ディレクトリでアクセスできるようにする。
-  blog.year_link = "{year}/index.html"
-  blog.month_link = "{year}/{month}/index.html"
-  blog.day_link = "{year}/{month}/{day}/index.html"
+  year_link:  '{year}/index.html',
+  month_link: '{year}/{month}/index.html',
+  day_link:   '{year}/{month}/{day}/index.html',
+  taglink:    '/tags/{tag}/index.html',
 
-  # .markdownは長いから、拡張子は.mdにする。
-  blog.default_extension = ".md"
+  # 拡張子markdownは長い。
+  default_extension: '.md',
+}
 
-  # blog.summary_separator = /(READMORE)/
-  # blog.summary_length = 250
 
-  # Enable pagination
-  # blog.paginate = true
-  # blog.per_page = 10
-  # blog.page_link = "page/{num}"
+################################################################################
+# Common configurations
+################################################################################
+
+# Sprockets load path ###########################################################
+after_configuration do
+  # Bowerのインストール先ディレクトリをSprocketsのLoad Pathに追加する。
+  @bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
+  sprockets.append_path File.join "#{root}", @bower_config["directory"]
 end
 
-###
-# Compass
-###
 
-# Change Compass configuration
-# compass_config do |config|
-#   config.output_style = :compact
-# end
-
-###
+################################################################################
 # Page options, layouts, aliases and proxies
-###
+################################################################################
 
-# Per-page layout changes:
-#
-# With no layout
-#
-# Atomのファイルにはレイアウト適用しないで。
+# ブログ用のAtomにはレイアウト適用しないで。
 page "/blog/atom.xml", layout: false
 
-
-# With alternative layout
-#
-# A path which all have the same layout
 # ブログ以外のページのレイアウトは、layouts/pageにする。
 with_layout :page do
   page "/pages/*"
 end
 
-# Proxy pages (http://middlemanapp.com/dynamic-pages/)
-# proxy "/this-page-has-no-template.html", "/template-file.html", locals: {
-#  which_fake_page: "Rendering a fake page with a local variable" }
 
-###
-# Helpers
-###
+################################################################################
+# Template Engine
+################################################################################
 
-# Automatic image dimensions on image_tag helper
-# activate :automatic_image_sizes
+set :slim,
+  format: :html5,   # HTML5のフォーマットで出力
+  sort_attrs: false # 属性をソートしない
 
-# Reload the browser automatically whenever files change
-# activate :livereload
 
-# Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
+################################################################################
+# Markdown Engine
+################################################################################
 
-set :slim, { format: :html5 }
-
-set :css_dir, 'stylesheets'
-
-set :js_dir, 'javascripts'
-
-set :images_dir, 'images'
-
-# Use Redcarpet
 set :markdown_engine, :redcarpet
-# Setup markdown options
 set :markdown,
-    fenced_code_blocks: true,
-    smarty_pants: true,
-    no_intra_emphasis: true,
-    tables: true,
-    autolink: true,
-    strikethrough: true,
-    lax_spacing: true,
-    space_after_headers: true,
-    superscript: true
+  no_intra_emphasis: true,   # no_intra_empasis の intra がemされないように
+  tables: true,              # tableを書けるように
+  fenced_code_blocks: true,  # GitHubスタイルの```rubyみたいなコードブロック
+  autolink: true,            # URLを自動的にリンクに
+  strikethrough: true,       # ~~で挟んだところをdelに
+  lax_spacing: true,         # HTML要素の前後に空行がなくても、HTMLとして解釈
+  space_after_headers: true, # ヘッダーの#の後ろにスペースを必須に
+  superscript: true,         # 1^2でsup
+  footnotes: true,           # [^1]とかで脚注を付けれるように
+  smartypants: true          # ...が…になったり
 
-# Syntax Highlight
-activate :syntax,
-    css_class: 'highlight',
-    inline_theme: nil,
-    line_numbers: true
 
-#activate :autoprefixer
+################################################################################
+# Middleman Plugins
+################################################################################
 
-after_configuration do
-  @bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
-  sprockets.append_path File.join "#{root}", @bower_config["directory"]
-end
+# Syntax Highlight #############################################################
+# middleman-syntax
+activate :syntax, {
+  line_numbers: true # 行番号を表示する。
+}
 
+# Autoprefixer #################################################################
+# Add vendor specific css prefixes. (middleman-autoprefixer)
+activate :autoprefixer
+
+
+################################################################################
 # Build-specific configuration
+################################################################################
 configure :build do
-  # Use relative URLs
+  # Use relative URLs for Assets
   activate :relative_assets
 
-  # Or use a different image path
-  # set :http_prefix, "/Content/images/"
-
-  # For example, change the Compass output style for deployment
+  # Minify CSS on build
   activate :minify_css
 
-  # Minify Javascript on build
+  # Minify JavaScript on build
   activate :minify_javascript
 
   # Minify HTML on build
@@ -145,17 +112,37 @@ configure :build do
 
   # Enable cache buster
   activate :asset_hash
+
+  # Compass ####################################################################
+  # 出力されるCSSは、ビルド時には圧縮する。
+  compass_config do |config|
+    config.output_style = :compressed
+  end
 end
 
+
+################################################################################
+# Development-specific configuration
+################################################################################
 configure :development do
   # LiveReload #################################################################
   # WebSocketが使えるブラウザでは、Flashは使わないようにしておく。
-  activate :livereload, no_swf: true
+  activate :livereload, { no_swf: true }
+
+  # Slim #######################################################################
+  # 出力されるHTMLをフォーマットするようにしとく。
+  set :slim, pretty: true
 
   # Debugging ##################################################################
   # middleman server で起動しているときは、SprocketsのDebug Modeを使って、
   # bundleしないで、各ファイルを個別にロードするようにする。
   # Sprocketsのrequireで読み込んでるファイルは個別にロードされるようになるけど、
   # Sassの@importで読み込んでるファイルは、個別にロードされるようにはならない。
-  config[:debug_assets] = true
+  set :debug_assets, true
+
+  # Compass ####################################################################
+  # 出力されるCSSをフォーマットするようにしとく。
+  compass_config do |config|
+    config.output_style = :expanded
+  end
 end
