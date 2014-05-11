@@ -148,7 +148,14 @@ configure :build do
 end
 
 configure :development do
-  # LiveReload ################################################################
+  # LiveReload #################################################################
   # WebSocketが使えるブラウザでは、Flashは使わないようにしておく。
   activate :livereload, no_swf: true
+
+  # Debugging ##################################################################
+  # middleman server で起動しているときは、SprocketsのDebug Modeを使って、
+  # bundleしないで、各ファイルを個別にロードするようにする。
+  # Sprocketsのrequireで読み込んでるファイルは個別にロードされるようになるけど、
+  # Sassの@importで読み込んでるファイルは、個別にロードされるようにはならない。
+  config[:debug_assets] = true
 end
