@@ -148,6 +148,7 @@ configure :build do
 end
 
 configure :development do
-  # Reload the browser automatically whenever files change
-  activate :livereload
+  # LiveReload ################################################################
+  # WebSocketが使えるブラウザでは、Flashは使わないようにしておく。
+  activate :livereload, no_swf: true
 end
