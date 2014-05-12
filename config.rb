@@ -36,6 +36,10 @@ activate :blog, {
 # Common configurations
 ################################################################################
 
+set :css_dir, 'styles'
+set :js_dir, 'scripts'
+set :images_dir, 'images'
+
 # Sprockets load path ###########################################################
 after_configuration do
   # Bowerのインストール先ディレクトリをSprocketsのLoad Pathに追加する。
