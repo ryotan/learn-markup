@@ -24,6 +24,11 @@ activate :blog, {
 
   # 拡張子markdownは長い。
   default_extension: '.md',
+
+  # ページネーション
+  paginate: true,
+  per_page: 10,
+  page_link: 'page{num}',
 }
 
 
