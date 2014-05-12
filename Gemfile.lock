@@ -27,12 +27,8 @@ GEM
       http_parser.rb (~> 0.6.0)
     erubis (2.7.0)
     eventmachine (1.0.3)
-    eventmachine (1.0.3-x86-mingw32)
     execjs (2.0.2)
     ffi (1.9.3)
-    ffi (1.9.3-x86-mingw32)
-    font-awesome-sass (4.0.3.1)
-      sass (~> 3.2)
     fssm (0.2.10)
     haml (4.0.5)
       tilt
@@ -152,7 +148,6 @@ PLATFORMS
 
 DEPENDENCIES
   builder
-  font-awesome-sass
   middleman
   middleman-autoprefixer
   middleman-blog

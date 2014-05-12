@@ -43,8 +43,19 @@ set :images_dir, 'images'
 # Sprockets load path ###########################################################
 after_configuration do
   # Bowerのインストール先ディレクトリをSprocketsのLoad Pathに追加する。
-  @bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
-  sprockets.append_path File.join "#{root}", @bower_config["directory"]
+  # 優先して読み込みたいディレクトリから順に追加してく。
+  bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
+  bower_install_dir = bower_config['directory']
+
+  # Foundation Scss
+  sprockets.append_path File.join "#{root}", bower_install_dir, 'foundation', 'scss'
+
+  # Font Awesome
+  sprockets.append_path File.join "#{root}", bower_install_dir, 'font-awesome', 'scss'
+  sprockets.append_path File.join "#{root}", bower_install_dir, 'font-awesome', 'fonts'
+
+  # その他のbower_components
+  sprockets.append_path File.join "#{root}", bower_install_dir
 end
 
 

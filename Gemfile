@@ -28,6 +28,3 @@ gem 'wdm', platforms: [:mswin, :mingw]
 
 # Windows does not come with time zone data
 gem 'tzinfo-data', platforms: [:mswin, :mingw]
-
-# Font Awesome (use gem not bower package according to official document.)
-gem 'font-awesome-sass'
