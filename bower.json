@@ -3,8 +3,8 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "foundation": "~5.2.2",
-    "normalize-scss": "~3.0.1",
-    "font-awesome": "~4.0.3"
+    "foundation": "^5.2.2",
+    "normalize-scss": ">=3.0.1",
+    "font-awesome": "^4.0.3"
   }
 }
