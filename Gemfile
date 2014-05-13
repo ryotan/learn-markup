@@ -18,7 +18,9 @@ gem 'redcarpet'
 gem 'builder'
 
 # Faster JavaScript compiler
-gem 'therubyracer'
+gem 'therubyracer', platforms: [:ruby]
+
+# Faster JSON parser and marshaller
 gem 'oj'
 
 # For faster file watcher updates on Windows:

@@ -8,7 +8,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     addressable (2.3.6)
-    autoprefixer-rails (1.1.20140510)
+    autoprefixer-rails (1.1.20140512)
       execjs
     builder (3.2.2)
     chunky_png (1.3.1)
@@ -27,8 +27,10 @@ GEM
       http_parser.rb (~> 0.6.0)
     erubis (2.7.0)
     eventmachine (1.0.3)
+    eventmachine (1.0.3-x86-mingw32)
     execjs (2.0.2)
     ffi (1.9.3)
+    ffi (1.9.3-x86-mingw32)
     font-awesome-sass (4.0.3.1)
       sass (~> 3.2)
     fssm (0.2.10)
@@ -96,11 +98,11 @@ GEM
     minitest (4.7.5)
     multi_json (1.10.0)
     oj (2.9.0)
-    padrino-helpers (0.12.1)
+    padrino-helpers (0.12.2)
       i18n (~> 0.6, >= 0.6.7)
-      padrino-support (= 0.12.1)
+      padrino-support (= 0.12.2)
       tilt (~> 1.4.1)
-    padrino-support (0.12.1)
+    padrino-support (0.12.2)
       activesupport (>= 3.1)
     rack (1.5.2)
     rack-livereload (0.3.15)
@@ -137,13 +139,16 @@ GEM
     thread_safe (0.3.3)
     tilt (1.4.1)
     tzinfo (0.3.39)
+    tzinfo-data (1.2013.9)
     uber (0.0.6)
     uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    wdm (0.1.0)
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   builder
