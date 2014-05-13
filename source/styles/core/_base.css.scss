@@ -1,0 +1,45 @@
+/*******************************************************************************
+ *
+ * Application base CSS
+ *   : Organized according to [MVCSS](http://mvcss.github.io/) style.
+ *
+ * HTML要素の基本的なスタイルを定義するファイル。
+ *
+ * ここで設定する見た目が、デザイン上そのタグの基本的な見た目になる。
+ *
+ ******************************************************************************/
+@charset "utf-8";
+
+html {
+  font-size: $base-font-size;
+}
+
+body {
+  background: $base-background;
+  color: $base-color;
+  font-family: $base-font-family;
+  font-size: 100%;
+  line-height: $base-line-height;
+}
+
+// -------------------------------------
+//   Block Content
+// -------------------------------------
+
+p {
+  font-size: rem($base-font-size);
+}
+
+// -------------------------------------
+//   Inline Content
+// -------------------------------------
+
+a {
+  color: $base-link-color;
+  text-decoration: none;
+  box-sizing: border-box;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  };
+}

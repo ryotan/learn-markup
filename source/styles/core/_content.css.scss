@@ -1,0 +1,54 @@
+/*******************************************************************************
+ *
+ * Application content CSS
+ *   : Organized according to [MVCSS](http://mvcss.github.io/) style.
+ *
+ * アプリケーションのTypography(fonts, colors)を定義するファイル。
+ *
+ * このファイルでは、主にフォントや色を設定する。
+ * 対して、layoutでは、マージン・パディング・サイズ・位置などの、
+ * レイアウトに関するものを設定する。
+ *
+ ******************************************************************************/
+@charset "utf-8";
+
+/*------------------------------------*
+ * Headings
+ *------------------------------------*/
+h1, h2, h3,
+h4, h5, h6 {
+  font-family: $c-header-font-family;
+  font-weight: bold;
+}
+
+h1, %c-h1 {
+  font-size: rem($c-h1-font-size);
+}
+
+h2, %c-h2 {
+  font-size: rem($c-xxlarge-font-size);
+}
+
+h3, %c-h3 {
+  font-size: rem($c-xlarge-font-size);
+}
+
+h4, %c-h4 {
+  font-size: rem($c-large-font-size);
+}
+
+h5, %c-h5 {
+  font-size: rem($c-medium-font-size);
+}
+
+h6, %c-h6 {
+  font-size: rem($c-medium-font-size);
+}
+
+// -------------------------------------
+//   Utilities
+// -------------------------------------
+
+%c-center {
+  text-align: center
+}

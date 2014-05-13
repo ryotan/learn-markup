@@ -1,0 +1,53 @@
+/*******************************************************************************
+ *
+ * Application CSS Helpers
+ *   : Organized according to [MVCSS](http://mvcss.github.io/) style.
+ *
+ * * Placeholder selectors
+ * * Functions
+ * * Mixins
+ * * Keyframes for animation
+ *
+ ******************************************************************************/
+@charset "utf-8";
+
+/*------------------------------------*
+ * Placeholder selectors
+ *------------------------------------*/
+
+
+/*------------------------------------*
+ * Functions
+ *------------------------------------*/
+
+/**
+ * Returns $size in rem.
+ * rem is calicurated based on $base-font-size
+ * and rounded to two decimal places.
+ */
+@function rem($size, $base: $base-font-size) {
+  $rem: round-to(remove-unit($size) / remove-unit($base), 2);
+  @return #{$rem}rem;
+}
+
+@function- remove-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@function- round-to($value, $place) {
+  $decimal: 1;
+  @for $i from 1 through $place {
+    $decimal: $decimal * 10;
+  }
+  @return round(($value * $decimal)) / $decimal;
+}
+
+
+/*------------------------------------*
+ * Mixins
+ *------------------------------------*/
+
+
+/*------------------------------------*
+ * Keyframes for animation
+ *------------------------------------*/

@@ -1,0 +1,14 @@
+/*******************************************************************************
+ *
+ * Reset / Normalize CSS
+ *   : Organized according to [MVCSS](http://mvcss.github.io/) style.
+ *
+ * [Normalize.css](http://necolas.github.io/normalize.css/) の読込み。
+ *
+ * Normalize.cssを上書きする場合には、core/_base.css.scssでやるように
+ * したほうが良いんだって。
+ *
+ ******************************************************************************/
+@charset "utf-8";
+
+@import "normalize";

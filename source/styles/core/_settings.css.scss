@@ -1,0 +1,52 @@
+/*******************************************************************************
+ *
+ * Application CSS Settings
+ *   : Organized according to [MVCSS](http://mvcss.github.io/) style.
+ *
+ * 変数値とかをまとめておくファイル。
+ *
+ * * @font-faceでのフォント定義
+ * * 変数
+ * は、ひとつのファイルにまとめといたほうが見通しがいいって。
+ *
+ ******************************************************************************/
+@charset "utf-8";
+
+/*------------------------------------*
+ * @font-face
+ *------------------------------------*/
+
+/*------------------------------------*
+ * Variables
+ *------------------------------------*/
+
+/* ----- Base Colors ----- */
+$base-background: #fff;
+$base-color: #222;
+$base-link-color: #0053c9;
+
+/* ----- Base Borders & Box Shadows ----- */
+$base-border: 1px solid $base-color;
+$base-border-radius: 3px;
+$base-box-shadow: 0 1px 2px rgba($base-color, 0.25);
+
+/* ----- Base Content ----- */
+$base-font-family: sans-serif;
+$base-font-size: 16px;
+$base-line-height: 1.5;
+
+/* ----- Base Layout ----- */
+
+/* ----- Content ----- */
+$c-header-font-family: $base-font-family;
+
+$c-small-font-size:  $base-font-size / 1.2;
+$c-normal-font-size: $base-font-size;
+$c-large-font-size:  $base-font-size * 1.2;
+$c-Large-font-size:  $base-font-size * 1.2 * 1.2;
+$c-LARGE-font-size:  $base-font-size * 1.2 * 1.2 * 1.2;
+$c-huge-font-size:   $base-font-size * 1.2 * 1.2 * 1.2 * 1.2;
+$c-Huge-font-size:   $base-font-size * 1.2 * 1.2 * 1.2 * 1.2 * 1.2;
+
+/* ----- Layout ----- */
+$l-max-width: 1280px;
