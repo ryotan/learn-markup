@@ -1,26 +1,82 @@
 doctype html
 
-html
+html[lang="ja"]
 
-  head
-    meta[charset="utf-8"]
-    meta[http-equiv="X-UA-Compatible" content="IE=edge;chrome=1"]
+  meta[charset="utf-8"]
+  meta[http-equiv="X-UA-Compatible" content="IE=edge;chrome=1"]
 
-    = stylesheet_link_tag "application"
-    = javascript_include_tag "application-head"
+  = stylesheet_link_tag "application"
+  = javascript_include_tag "application-head"
+  = feed_tag :atom, "#{blog.options.prefix.to_s}/atom.xml", title: "Atom Feed"
 
-    title
-        | Blog Title
-        = ' - ' + current_article.title unless current_article.nil?
+  title
+      | Site Title
+      = ' - ' + current_article.title unless current_article.nil?
 
-    = feed_tag :atom, "#{blog.options.prefix.to_s}/atom.xml", title: "Atom Feed"
+  /-----------------------------------------------------------------------------
+   - HEADER
+   -   * LOGO Image
+   -   * Site Title
+   -   * Tag Line
+   -   * Global Menu
+   ----------------------------------------------------------------------------/
+  header#glob-header[role="banner"]
+    hgroup#site-logo
+      /-- LOGO Image --/
+      | img.logo LOGO
 
-  body
-    #main[role="main"]
-      == yield
+      /-- Site Title --/
+      h1.title
+        | Site Title
 
-    aside
-      h2 Recent Articles
+      /-- Tag Line --/
+      p.tagline
+        | Tag Line
+
+    /-- Global Menu --/
+    nav#global-menu[role="navigation"]
+      h1. Menu
+      ol.menu-items
+        li.menu-item
+          | Blog
+        li.menu-item
+          | Pages
+        li.menu-item
+          | About
+
+
+  /-----------------------------------------------------------------------------
+   - MAIN CONTENTS
+   ----------------------------------------------------------------------------/
+  main#main[role="main"]
+    == yield
+
+  /-----------------------------------------------------------------------------
+   - SIDEBAR
+   -   * Search Box
+   -   * Abount Me (social links, abstract)
+   -   * Recent Articles
+   -   * Arxiv (year/month/date tree)
+   -   * Tag Cloud
+   ----------------------------------------------------------------------------/
+  aside#sidebar[role="complementary"]
+    /-- Search Box --/
+    section#search-box
+      h1 Search
+
+    /-- About Me --/
+    section#about-me
+      h1 About Me
+      p About Me
+      #social-links
+        i.fa.fa-twitter-square
+        i.fa.fa-github-square
+        i.fa.fa-bitbucket-square
+        i.fa.fa-rss-square
+
+    /-- Recent Articles --/
+    section#recent-articles
+      h1 Recent Articles
       ol
         - blog.articles[0...10].each do |article|
           li
@@ -28,16 +84,27 @@ html
             span
               = article.date.strftime('%b %e')
 
-      h2 Tags
+    /-- Arxiv --/
+    section#arxiv
+      h1 Arxiv
+      ol
+      - blog.articles.group_by { |a| a.date.year }.each do |year, articles|
+          li
+            = link_to "#{year} (#{articles.size})", blog_year_path(year)
+
+    /-- Tag Cloud --/
+    section#tag-cloud
+      h1 Tag Cloud
       ol
         - blog.tags.each do |tag, articles|
           li
             = link_to "#{tag} (#{articles.size})", tag_path(tag)
 
-      h2 By Year
-      ol
-      - blog.articles.group_by { |a| a.date.year }.each do |year, articles|
-          li
-            = link_to "#{year} (#{articles.size})", blog_year_path(year)
+  /-----------------------------------------------------------------------------
+   - FOOTER
+   -   * Copyright
+   ----------------------------------------------------------------------------/
+  footer#global-footer[role="contentinfo"]
+    | Copyright 2014- ryotan
 
   = javascript_include_tag "application"
