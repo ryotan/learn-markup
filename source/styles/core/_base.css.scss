@@ -20,8 +20,8 @@ body {
   font-family: $base-font-family;
   font-size: rem($base-font-size);
   line-height: $base-line-height;
-  width: $l-max-width;
   margin: 0 auto;
+  max-width: $l-max-width;
 }
 
 /*------------------------------------*
