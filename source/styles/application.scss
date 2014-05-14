@@ -74,3 +74,54 @@
  * INBOX
  *
  ******************************************************************************/
+body {
+  background: #fff;
+}
+
+#global-header {
+  background: #eee;
+
+  #site-logo {
+    background: #ddd;
+  }
+
+  #global-menu {
+    background: #ddd;
+  }
+}
+
+#main {
+  background: #eee;
+}
+
+#sidebar {
+  background: #eee;
+
+  #search-box {
+    background: #ddd;
+  }
+
+  #about-me {
+    background: #ddd;
+
+    #social-links {
+      background: #ccc;
+    }
+  }
+
+  #recent-articles {
+    background: #ddd;
+  }
+
+  #arxiv {
+    background: #ddd;
+  }
+
+  #tag-cloud {
+    background: #ddd;
+  }
+}
+
+#global-footer {
+  background: #eee;
+}
