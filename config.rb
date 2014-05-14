@@ -6,7 +6,7 @@ Time.zone = 'Tokyo'
 
 activate :blog, {
   # ブログ記事は、/blogで公開する。ソースも/blog配下になる。
-  prefix: '/blog',
+  prefix: 'blog',
   sources: '/{year}/{month}/{day}/{title}.html',
 
   # ブログ記事用のレイアウトをlayouts/blogに用意する。
@@ -17,10 +17,10 @@ activate :blog, {
   tag_template:      'blog/templates/tag.html',
 
   # 日付毎とかのページは、ディレクトリでアクセスできるようにする。
-  year_link:  '{year}/index.html',
-  month_link: '{year}/{month}/index.html',
-  day_link:   '{year}/{month}/{day}/index.html',
-  taglink:    '/tags/{tag}/index.html',
+  year_link:  '{year}.html',
+  month_link: '{year}/{month}.html',
+  day_link:   '{year}/{month}/{day}.html',
+  taglink:    'tags/{tag}.html',
 
   # 拡張子markdownは長い。
   default_extension: '.md',
@@ -119,6 +119,7 @@ activate :autoprefixer
 ################################################################################
 configure :build do
   # Use relative URLs for Assets
+  set :relative_links, true
   activate :relative_assets
 
   # Minify CSS on build

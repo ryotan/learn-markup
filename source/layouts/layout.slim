@@ -90,7 +90,7 @@ html[lang="ja"]
       ol
       - blog.articles.group_by { |a| a.date.year }.each do |year, articles|
           li
-            = link_to "#{year} (#{articles.size})", blog_year_path(year)
+            = link_to "#{year} (#{articles.size})", blog_year_path(year), relative: true
 
     /-- Tag Cloud --/
     section#tag-cloud
@@ -98,7 +98,7 @@ html[lang="ja"]
       ol
         - blog.tags.each do |tag, articles|
           li
-            = link_to "#{tag} (#{articles.size})", tag_path(tag)
+            = link_to "#{tag} (#{articles.size})", tag_path(tag), relative: true
 
   /-----------------------------------------------------------------------------
    - FOOTER
