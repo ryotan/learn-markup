@@ -30,11 +30,11 @@
   @return #{$rem}rem;
 }
 
-@function- remove-unit($value) {
+@function remove-unit($value) {
   @return $value / ($value * 0 + 1);
 }
 
-@function- round-to($value, $place) {
+@function round-to($value, $place) {
   $decimal: 1;
   @for $i from 1 through $place {
     $decimal: $decimal * 10;

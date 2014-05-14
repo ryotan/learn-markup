@@ -22,27 +22,27 @@ h4, h5, h6 {
 }
 
 h1, %c-h1 {
-  font-size: rem($c-h1-font-size);
+  font-size: rem($c-Huge-font-size);
 }
 
 h2, %c-h2 {
-  font-size: rem($c-xxlarge-font-size);
+  font-size: rem($c-huge-font-size);
 }
 
 h3, %c-h3 {
-  font-size: rem($c-xlarge-font-size);
+  font-size: rem($c-LARGE-font-size);
 }
 
 h4, %c-h4 {
-  font-size: rem($c-large-font-size);
+  font-size: rem($c-Large-font-size);
 }
 
 h5, %c-h5 {
-  font-size: rem($c-medium-font-size);
+  font-size: rem($c-large-font-size);
 }
 
 h6, %c-h6 {
-  font-size: rem($c-medium-font-size);
+  font-size: rem($base-font-size);
 }
 
 // -------------------------------------
