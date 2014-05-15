@@ -15,33 +15,15 @@ html {
 }
 
 body {
-  background: $base-background;
-  color: $base-color;
   font-family: $base-font-family;
-  font-size: rem($base-font-size);
-  line-height: $base-line-height;
-  margin: 0 auto;
-  max-width: $l-max-width;
 }
+
 
 /*------------------------------------*
  * Block Content
  *------------------------------------*/
 
-p {
-  font-size: rem($base-font-size);
-}
 
 /*------------------------------------*
  * Inline Content
  *------------------------------------*/
-
-a {
-  color: $base-link-color;
-  text-decoration: none;
-  box-sizing: border-box;
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-  };
-}

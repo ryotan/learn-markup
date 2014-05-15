@@ -1,2 +1,4 @@
-# require jquery
-# require foundation
+#= require jquery
+#= require foundation
+
+$(document).foundation()
