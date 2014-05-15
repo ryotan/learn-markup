@@ -2,109 +2,111 @@ doctype html
 
 html[lang="ja"]
 
-  meta[charset="utf-8"]
-  meta[http-equiv="X-UA-Compatible" content="IE=edge;chrome=1"]
+  head
+    meta[charset="utf-8"]
+    meta[http-equiv="X-UA-Compatible" content="IE=edge;chrome=1"]
 
-  = stylesheet_link_tag "application"
-  = javascript_include_tag "application-head"
-  = feed_tag :atom, "#{blog.options.prefix.to_s}/atom.xml", title: "Atom Feed"
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application-head"
+    = feed_tag :atom, "#{blog.options.prefix.to_s}/atom.xml", title: "Atom Feed"
 
-  title
-      | Site Title
-      = ' - ' + current_article.title unless current_article.nil?
-
-  /-----------------------------------------------------------------------------
-   - HEADER
-   -   * LOGO Image
-   -   * Site Title
-   -   * Tag Line
-   -   * Global Menu
-   ----------------------------------------------------------------------------/
-  header#global-header[role="banner"]
-    hgroup#site-logo
-      /-- LOGO Image --/
-      | img LOGO
-
-      /-- Site Title --/
-      h1
+    title
         | Site Title
+        = ' - ' + current_article.title unless current_article.nil?
 
-      /-- Tag Line --/
-      h2.tagline
-        | Tag Line
+  body
+    /-----------------------------------------------------------------------------
+     - HEADER
+     -   * LOGO Image
+     -   * Site Title
+     -   * Tag Line
+     -   * Global Menu
+     ----------------------------------------------------------------------------/
+    header#global-header[role="banner"]
+      hgroup#site-logo
+        /-- LOGO Image --/
+        | img LOGO
 
-    /-- Global Menu --/
-    nav#global-menu[role="navigation"]
-      h1 Menu
-      ol.menu-items
-        li.menu-item
-          | Blog
-        li.menu-item
-          | Pages
-        li.menu-item
-          | About
+        /-- Site Title --/
+        h1
+          | Site Title
+
+        /-- Tag Line --/
+        h2.tagline
+          | Tag Line
+
+      /-- Global Menu --/
+      nav#global-menu[role="navigation"]
+        h1 Menu
+        ol.menu-items
+          li.menu-item
+            | Blog
+          li.menu-item
+            | Pages
+          li.menu-item
+            | About
 
 
-  /-----------------------------------------------------------------------------
-   - MAIN CONTENTS
-   ----------------------------------------------------------------------------/
-  main#main[role="main"]
-    == yield
+    /-----------------------------------------------------------------------------
+     - MAIN CONTENTS
+     ----------------------------------------------------------------------------/
+    main#main[role="main"]
+      == yield
 
-  /-----------------------------------------------------------------------------
-   - SIDEBAR
-   -   * Search Box
-   -   * Abount Me (social links, abstract)
-   -   * Recent Articles
-   -   * Arxiv (year/month/date tree)
-   -   * Tag Cloud
-   ----------------------------------------------------------------------------/
-  aside#sidebar[role="complementary"]
-    /-- Search Box --/
-    section#search-box[role="search"]
-      h1 Search
+    /-----------------------------------------------------------------------------
+     - SIDEBAR
+     -   * Search Box
+     -   * Abount Me (social links, abstract)
+     -   * Recent Articles
+     -   * Arxiv (year/month/date tree)
+     -   * Tag Cloud
+     ----------------------------------------------------------------------------/
+    aside#sidebar[role="complementary"]
+      /-- Search Box --/
+      section#search-box[role="search"]
+        h1 Search
 
-    /-- About Me --/
-    section#about-me
-      h1 About Me
-      p About Me
-      #social-links
-        i.fa.fa-twitter-square
-        i.fa.fa-github-square
-        i.fa.fa-bitbucket-square
-        i.fa.fa-rss-square
+      /-- About Me --/
+      section#about-me
+        h1 About Me
+        p About Me
+        #social-links
+          i.fa.fa-twitter-square
+          i.fa.fa-github-square
+          i.fa.fa-bitbucket-square
+          i.fa.fa-rss-square
 
-    /-- Recent Articles --/
-    section#recent-articles
-      h1 Recent Articles
-      ol
-        - blog.articles[0...10].each do |article|
-          li
-            = link_to article.title, article
-            span
-              = article.date.strftime('%b %e')
+      /-- Recent Articles --/
+      section#recent-articles
+        h1 Recent Articles
+        ol
+          - blog.articles[0...10].each do |article|
+            li
+              = link_to article.title, article
+              span
+                = article.date.strftime('%b %e')
 
-    /-- Arxiv --/
-    section#arxiv
-      h1 Arxiv
-      ol
-      - blog.articles.group_by { |a| a.date.year }.each do |year, articles|
-          li
-            = link_to "#{year} (#{articles.size})", blog_year_path(year), relative: true
+      /-- Arxiv --/
+      section#arxiv
+        h1 Arxiv
+        ol
+        - blog.articles.group_by { |a| a.date.year }.each do |year, articles|
+            li
+              = link_to "#{year} (#{articles.size})", blog_year_path(year), relative: true
 
-    /-- Tag Cloud --/
-    section#tag-cloud
-      h1 Tag Cloud
-      ol
-        - blog.tags.each do |tag, articles|
-          li
-            = link_to "#{tag} (#{articles.size})", tag_path(tag), relative: true
+      /-- Tag Cloud --/
+      section#tag-cloud
+        h1 Tag Cloud
+        ol
+          - blog.tags.each do |tag, articles|
+            li
+              = link_to "#{tag} (#{articles.size})", tag_path(tag), relative: true
 
-  /-----------------------------------------------------------------------------
-   - FOOTER
-   -   * Copyright
-   ----------------------------------------------------------------------------/
-  footer#global-footer[role="contentinfo"]
-    | Copyright 2014- ryotan
+    /-----------------------------------------------------------------------------
+     - FOOTER
+     -   * Copyright
+     ----------------------------------------------------------------------------/
+    footer#global-footer[role="contentinfo"]
+      | Copyright 2014- ryotan
 
-  = javascript_include_tag "application"
+    = javascript_include_tag "application"
