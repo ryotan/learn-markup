@@ -30,16 +30,19 @@ html[lang="ja"]
         | Site Title
 
       /-- Tag Line --/
-      p
+      h2.tagline
         | Tag Line
 
     /-- Global Menu --/
     nav#global-menu[role="navigation"]
       h1 Menu
-      ol
-        li Blog
-        li Pages
-        li About
+      ol.menu-items
+        li.menu-item
+          | Blog
+        li.menu-item
+          | Pages
+        li.menu-item
+          | About
 
 
   /-----------------------------------------------------------------------------
@@ -58,7 +61,7 @@ html[lang="ja"]
    ----------------------------------------------------------------------------/
   aside#sidebar[role="complementary"]
     /-- Search Box --/
-    section#search-box
+    section#search-box[role="search"]
       h1 Search
 
     /-- About Me --/
