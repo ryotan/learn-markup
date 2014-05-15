@@ -10,7 +10,7 @@ section
       nav
         = link_to 'Previous page', prev_page
 
-  article
+  nav
     - page_articles.each_with_index do |article, i|
       section
         h2
@@ -18,7 +18,7 @@ section
           span
             = article.date.strftime('%b %e')
         article
-          = article.body
+          = article.summary(140)
 
   - if paginate && next_page
       nav

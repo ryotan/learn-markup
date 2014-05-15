@@ -13,6 +13,7 @@ gem 'middleman-autoprefixer'
 # Engines
 gem 'slim'
 gem 'redcarpet'
+gem 'nokogiri'
 
 # For atom.xml.builder
 gem 'builder'
