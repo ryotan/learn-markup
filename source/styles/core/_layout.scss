@@ -9,6 +9,29 @@
 @charset "utf-8";
 
 /*------------------------------------*
+ * Basic Components
+ *------------------------------------*/
+%header {
+  @extend .medium-12;
+  @extend .column;
+}
+
+%main {
+  @extend .medium-9;
+  @extend .column;
+}
+
+%sidebar {
+  @extend .medium-3;
+  @extend .column;
+}
+
+%footer {
+  @extend .medium-12;
+  @extend .column;
+}
+
+/*------------------------------------*
  * Bucket
  *------------------------------------*/
 
