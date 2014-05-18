@@ -1,0 +1,40 @@
+#global-header {
+  @extend %header;
+
+  .site-logo {
+    float: left;
+    @include clearfix();
+
+    padding: rem(15);
+
+    .logo-img {
+      margin: 0 rem(10) 0 0;
+      vertical-align: middle;
+
+      img {
+        border: none;
+        max-height: rem(100);
+      }
+    }
+
+    .title {
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    h1 {
+      line-height: 1;
+      margin: 0;
+    }
+
+    p {
+      font-size: $c-Large-font-size;
+      line-height: 1;
+      margin: rem(8) 0 0 0;
+    }
+  }
+
+  .global-menu {
+    float: right;
+  }
+}

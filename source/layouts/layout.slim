@@ -25,20 +25,22 @@ html[lang="ja"]
      ----------------------------------------------------------------------------/
     .row
       header#global-header[role="banner"]
-        #site-logo
+        .site-logo
           /-- LOGO Image --/
-          img LOGO
+          = link_to "/", class: "logo-img" do
+            = image_tag "logo.png", alt: ""
 
-          /-- Site Title --/
-          h1
-            | Site Title
+          .title
+            /-- Site Title --/
+            h1
+              = link_to "Site Title", "/"
 
-          /-- Tag Line --/
-          h2.tagline
-            | Tag Line
+            /-- Tag Line --/
+            p.tagline
+              | Tag Line
 
         /-- Global Menu --/
-        nav#global-menu[role="navigation"]
+        nav.global-menu[role="navigation"]
           h1 Menu
           ol.menu-items
             li.menu-item
