@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+.copyright {
+  // h1 is only for "Section Title", so hide it.
+  h1 {
+    display: none;
+  }
+
+  // copyright notice "© year author" block
+  .copyright-notice {
+    .copyright-year {
+      margin: 0 rem(8) 0 0;
+      &::before {
+        // before year, display "©"(\u00a9).
+        content: "\0000a9";
+        margin: 0 rem(8) 0 0;
+      }
+    }
+  }
+}

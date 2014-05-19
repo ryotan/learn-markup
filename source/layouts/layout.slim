@@ -111,6 +111,17 @@ html[lang="ja"]
        -   * Copyright
        ----------------------------------------------------------------------------/
       footer#global-footer[role="contentinfo"]
-        | Copyright 2014- ryotan
+        section.copyright
+          h1 Copyright
+          .copyright-notice
+            span.copyright-year 2014-
+            a.author-link[href="https://twitter.com/_ryotan" target="_blank"] ryotan
+          .license
+            = "Except as otherwise noted, the content of this page is licensed under the "
+            = link_to "Creative Commons Attribution 3.0 Unported License",
+                      "http://creativecommons.org/licenses/by/3.0/", target: "_blank"
+            = ", and code samples are licensed under the "
+            = link_to "Apache License, Version 2.0", "http://www.apache.org/licenses/LICENSE-2.0", target: "_blank"
+            | .
 
-      = javascript_include_tag "application"
+    = javascript_include_tag "application"
