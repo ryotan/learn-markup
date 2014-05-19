@@ -1,3 +1,5 @@
+@import "header/site-logo";
+
 #global-header {
   @extend %header;
 
@@ -5,34 +7,7 @@
     float: left;
     @include clearfix();
 
-    padding: rem(15);
-
-    .logo-img {
-      margin: 0 rem(10) 0 0;
-      vertical-align: middle;
-
-      img {
-        border: none;
-        max-width: rem(100);
-      }
-    }
-
-    .title {
-      display: inline-block;
-      margin: rem(5) 0 0 0;
-      vertical-align: middle;
-    }
-
-    h1 {
-      line-height: 1;
-      margin: 0;
-    }
-
-    p {
-      font-size: $c-Large-font-size;
-      line-height: 1;
-      margin: rem(8) 0 0 0;
-    }
+    @extend %site-logo;
   }
 
   .global-menu {

@@ -1,0 +1,31 @@
+%site-logo {
+  padding: rem(10);
+
+  .logo-img {
+    margin: 0 rem(10) 0 0;
+    vertical-align: middle;
+
+    img {
+      border: none;
+      max-width: rem(100);
+    }
+  }
+
+  .title-block {
+    display: inline-block;
+    // 画像といい感じに並んでるように見えるように、少しmargin-topを取る。
+    margin: rem(5) 0 0 0;
+    vertical-align: middle;
+
+    .title {
+      line-height: 1;
+      margin: 0;
+    }
+
+    .tagline {
+      font-size: $c-Large-font-size;
+      line-height: 1;
+      margin: rem(8) 0 0 0;
+    }
+  }
+}
