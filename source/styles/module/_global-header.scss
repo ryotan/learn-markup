@@ -1,16 +1,18 @@
+@import "foundation/components/global";
 @import "header/site-logo";
+@import "header/menu";
 
 #global-header {
   @extend %header;
+  @include clearfix();
 
   .site-logo {
     float: left;
-    @include clearfix();
-
     @extend %site-logo;
   }
 
   .global-menu {
     float: right;
+    @extend %menu;
   }
 }

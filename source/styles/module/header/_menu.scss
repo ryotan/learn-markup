@@ -1,0 +1,17 @@
+%menu {
+  h1 {
+    display: none;
+  }
+  .menu-items {
+    list-style: none;
+    margin: 0;
+    @include clearfix();
+
+    .menu-item {
+      float: left;
+      padding: rem(10);
+
+      @extend %c-h4
+    }
+  }
+}
