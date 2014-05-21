@@ -8,14 +8,10 @@
   align-items: flex-end;
 
   .site-logo {
-    flex: 1 60%;
-    width: 60%;
     @extend %site-logo;
   }
 
   .global-menu {
-    flex: 1 30%;
-    width: 30%;
     @extend %menu;
   }
 }

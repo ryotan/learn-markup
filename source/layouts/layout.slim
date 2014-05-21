@@ -24,30 +24,11 @@ html[lang="ja"]
      -   * Global Menu
      ----------------------------------------------------------------------------/
     header#global-header[role="banner"]
-      .site-logo
-        /-- LOGO Image --/
-        = link_to "/", class: "logo-img" do
-          = image_tag "logo.png", alt: ""
-
-        .title-block
-          /-- Site Title --/
-          h1.title
-            = link_to "Site Title", "/"
-
-          /-- Tag Line --/
-          p.tagline
-            | Tag Line
+      == partial "site-logo"
 
       /-- Global Menu --/
       nav.global-menu[role="navigation"]
-        h1 Menu
-        ol.menu-items
-          li.menu-item
-            = link_to "Blog", "/"
-          /li.menu-item
-            | Pages
-          li.menu-item
-            = link_to "About", "/about-me.html"
+        == partial "menu"
 
 
     /-----------------------------------------------------------------------------
