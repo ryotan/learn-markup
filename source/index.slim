@@ -11,14 +11,30 @@ section
         = link_to 'Previous page', prev_page
 
   nav
-    - page_articles.each_with_index do |article, i|
-      section
-        h2
-          = link_to article.title, article
-          span
-            = article.date.strftime('%b %e')
-        article
-          = article.summary(140)
+    - page_articles.each_slice(2).with_index do |articles, i|
+      - if articles[0]
+        .card-articles
+          - article = articles[0]
+          section.card-article
+            = link_to article
+              h2
+                = article.title
+              span
+                = article.date.strftime('%b %e')
+              article
+                = article.summary(250)
+          - if articles[1]
+            - article = articles[1]
+            section.card-article
+              = link_to article
+                h2
+                  = article.title
+                span
+                  = article.date.strftime('%b %e')
+                article
+                  = article.summary(250)
+          - else
+            section.card
 
   - if paginate && next_page
       nav

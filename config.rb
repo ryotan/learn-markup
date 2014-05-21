@@ -39,6 +39,7 @@ activate :blog, {
 set :css_dir, 'styles'
 set :js_dir, 'scripts'
 set :images_dir, 'images'
+set :partials_dir, "#{config[:layouts_dir]}/partials"
 
 markdown_extensions = {
   # https://github.com/vmg/redcarpet#and-its-like-really-simple-to-use

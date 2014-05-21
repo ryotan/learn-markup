@@ -1,0 +1,25 @@
+.card-articles {
+  display: flex;
+  justify-content: space-around;
+
+  .card {
+    width: 45%;
+  }
+
+  .card-article {
+    @extend .card;
+
+    border: 1px solid #ccc;
+
+    h1{
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 5px;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      display: none;
+    }
+  }
+}
