@@ -11,24 +11,30 @@
 /*------------------------------------*
  * Basic Components
  *------------------------------------*/
+body {
+  max-width: $l-max-width;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
+
 %header {
-  @extend .medium-12;
-  @extend .column;
+  flex: 1 100%;
 }
 
 %main {
-  @extend .medium-9;
-  @extend .column;
+  flex: 1 65%;
+  width: 65%;
+  margin: 10px;
 }
 
 %sidebar {
-  @extend .medium-3;
-  @extend .column;
+  flex: 1 30%;
+  width: 30%;
 }
 
 %footer {
-  @extend .medium-12;
-  @extend .column;
+  flex: 1 100%;
 }
 
 /*------------------------------------*

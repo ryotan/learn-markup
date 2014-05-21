@@ -23,107 +23,104 @@ html[lang="ja"]
      -   * Tag Line
      -   * Global Menu
      ----------------------------------------------------------------------------/
-    .row
-      header#global-header[role="banner"]
-        .site-logo
-          /-- LOGO Image --/
-          = link_to "/", class: "logo-img" do
-            = image_tag "logo.png", alt: ""
+    header#global-header[role="banner"]
+      .site-logo
+        /-- LOGO Image --/
+        = link_to "/", class: "logo-img" do
+          = image_tag "logo.png", alt: ""
 
-          .title-block
-            /-- Site Title --/
-            h1.title
-              = link_to "Site Title", "/"
+        .title-block
+          /-- Site Title --/
+          h1.title
+            = link_to "Site Title", "/"
 
-            /-- Tag Line --/
-            p.tagline
-              | Tag Line
+          /-- Tag Line --/
+          p.tagline
+            | Tag Line
 
-        /-- Global Menu --/
-        nav.global-menu[role="navigation"]
-          h1 Menu
-          ol.menu-items
-            li.menu-item
-              = link_to "Blog", "/"
-            /li.menu-item
-              | Pages
-            li.menu-item
-              = link_to "About", "/about-me.html"
+      /-- Global Menu --/
+      nav.global-menu[role="navigation"]
+        h1 Menu
+        ol.menu-items
+          li.menu-item
+            = link_to "Blog", "/"
+          /li.menu-item
+            | Pages
+          li.menu-item
+            = link_to "About", "/about-me.html"
 
 
-    .row
-      /-----------------------------------------------------------------------------
-       - MAIN CONTENTS
-       ----------------------------------------------------------------------------/
-      main#main[role="main"]
-        == yield
+    /-----------------------------------------------------------------------------
+     - MAIN CONTENTS
+     ----------------------------------------------------------------------------/
+    main#main[role="main"]
+      == yield
 
-      /-----------------------------------------------------------------------------
-       - SIDEBAR
-       -   * Search Box
-       -   * Abount Me (social links, abstract)
-       -   * Recent Articles
-       -   * Arxiv (year/month/date tree)
-       -   * Tag Cloud
-       ----------------------------------------------------------------------------/
-      aside#sidebar[role="complementary"]
-        /-- Search Box --/
-        section#search-box[role="search"]
-          h1 Search
+    /-----------------------------------------------------------------------------
+     - SIDEBAR
+     -   * Search Box
+     -   * Abount Me (social links, abstract)
+     -   * Recent Articles
+     -   * Arxiv (year/month/date tree)
+     -   * Tag Cloud
+     ----------------------------------------------------------------------------/
+    aside#sidebar[role="complementary"]
+      /-- Search Box --/
+      section#search-box[role="search"]
+        h1 Search
 
-        /-- About Me --/
-        section#about-me
-          h1 About Me
-          p About Me
-          #social-links
-            i.fa.fa-twitter-square
-            i.fa.fa-github-square
-            i.fa.fa-bitbucket-square
-            i.fa.fa-rss-square
+      /-- About Me --/
+      section#about-me
+        h1 About Me
+        p About Me
+        #social-links
+          i.fa.fa-twitter-square
+          i.fa.fa-github-square
+          i.fa.fa-bitbucket-square
+          i.fa.fa-rss-square
 
-        /-- Recent --/
-        section#recent-articles
-          h1 Recent
-          ol
-            - blog.articles[0...5].each do |article|
-              li
-                = link_to article.title, article
-                span
-                  = article.date.strftime('%b %e')
+      /-- Recent --/
+      section#recent-articles
+        h1 Recent
+        ol
+          - blog.articles[0...5].each do |article|
+            li
+              = link_to article.title, article
+              span
+                = article.date.strftime('%b %e')
 
-        /-- Arxiv --/
-        section#arxiv
-          h1 Arxiv
-          ol
-          - blog.articles.group_by { |a| a.date.year }.each do |year, articles|
-              li
-                = link_to "#{year} (#{articles.size})", blog_year_path(year), relative: true
+      /-- Arxiv --/
+      section#arxiv
+        h1 Arxiv
+        ol
+        - blog.articles.group_by { |a| a.date.year }.each do |year, articles|
+            li
+              = link_to "#{year} (#{articles.size})", blog_year_path(year), relative: true
 
-        /-- Tags --/
-        section#tags
-          h1 Tags
-          ol
-            - blog.tags.each do |tag, articles|
-              li
-                = link_to "#{tag} (#{articles.size})", tag_path(tag), relative: true
+      /-- Tags --/
+      section#tags
+        h1 Tags
+        ol
+          - blog.tags.each do |tag, articles|
+            li
+              = link_to "#{tag} (#{articles.size})", tag_path(tag), relative: true
 
-    .row
-      /-----------------------------------------------------------------------------
-       - FOOTER
-       -   * Copyright
-       ----------------------------------------------------------------------------/
-      footer#global-footer[role="contentinfo"]
-        section.copyright
-          h1 Copyright
-          .copyright-notice
-            span.copyright-year 2014-
-            a.author-link[href="https://twitter.com/_ryotan" target="_blank"] ryotan
-          .license
-            = "Except as otherwise noted, the content of this page is licensed under the "
-            = link_to "Creative Commons Attribution 3.0 Unported License",
-                      "http://creativecommons.org/licenses/by/3.0/", target: "_blank"
-            = ", and code samples are licensed under the "
-            = link_to "Apache License, Version 2.0", "http://www.apache.org/licenses/LICENSE-2.0", target: "_blank"
-            | .
+    /-----------------------------------------------------------------------------
+     - FOOTER
+     -   * Copyright
+     ----------------------------------------------------------------------------/
+    footer#global-footer[role="contentinfo"]
+      section.copyright
+        h1 Copyright
+        .copyright-notice
+          span.copyright-year 2014-
+          a.author-link[href="https://twitter.com/_ryotan" target="_blank"] ryotan
+        .license
+          = "Except as otherwise noted, the content of this page is licensed under the "
+          = link_to "Creative Commons Attribution 3.0 Unported License",
+                    "http://creativecommons.org/licenses/by/3.0/", target: "_blank"
+          = ", and code samples are licensed under the "
+          = link_to "Apache License, Version 2.0", "http://www.apache.org/licenses/LICENSE-2.0", target: "_blank"
+          | .
 
     = javascript_include_tag "application"

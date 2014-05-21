@@ -1,18 +1,21 @@
-@import "foundation/components/global";
 @import "header/site-logo";
 @import "header/menu";
 
 #global-header {
   @extend %header;
-  @include clearfix();
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 
   .site-logo {
-    float: left;
+    flex: 1 60%;
+    width: 60%;
     @extend %site-logo;
   }
 
   .global-menu {
-    float: right;
+    flex: 1 30%;
+    width: 30%;
     @extend %menu;
   }
 }
