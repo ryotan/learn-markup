@@ -2,11 +2,6 @@
 @import "header/menu";
 
 #global-header {
-  @extend %header;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-
   .site-logo {
     @extend %site-logo;
   }

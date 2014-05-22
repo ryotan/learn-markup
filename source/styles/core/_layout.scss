@@ -20,22 +20,22 @@ body {
   flex-flow: row wrap;
 }
 
-%header {
-  flex: 1 100%;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
-%main {
-  flex: 1 65%;
-  width: 65%;
+main {
+  flex: 1 0 65%;
   margin: 10px;
 }
 
-%sidebar {
-  flex: 1 30%;
-  width: 30%;
+aside {
+  flex: 1 0 30%;
 }
 
-%footer {
+footer {
   flex: 1 100%;
 }
 
