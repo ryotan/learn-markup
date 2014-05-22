@@ -41,41 +41,6 @@ set :js_dir, 'scripts'
 set :images_dir, 'images'
 set :partials_dir, "#{config[:layouts_dir]}/partials"
 
-markdown_extensions = {
-  # https://github.com/vmg/redcarpet#and-its-like-really-simple-to-use
-  no_intra_emphasis: true,   # no_intra_empasis の intra がemされないように
-  tables: true,              # tableを書けるように
-  fenced_code_blocks: true,  # GitHubスタイルの```rubyみたいなコードブロック
-  autolink: true,            # URLを自動的にリンクに
-  strikethrough: true,       # ~~で挟んだところをdelに
-  lax_spacing: true,         # HTML要素の前後に空行がなくても、HTMLとして解釈
-  space_after_headers: true, # ヘッダーの#の後ろにスペースを必須に
-  superscript: true,         # 1^2でsup
-  footnotes: true,           # [^1]とかで脚注を付けれるように
-  smartypants: true          # ...が…になったり
-}
-
-after_configuration do
-# Sprockets load path ###########################################################
-  # Bowerのインストール先ディレクトリをSprocketsのLoad Pathに追加する。
-  # 優先して読み込みたいディレクトリから順に追加してく。
-  bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
-  bower_install_dir = bower_config['directory']
-
-  # Foundation Scss
-  sprockets.append_path File.join "#{root}", bower_install_dir, 'foundation', 'scss'
-
-  # Font Awesome
-  sprockets.append_path File.join "#{root}", bower_install_dir, 'font-awesome', 'scss'
-  sprockets.append_path File.join "#{root}", bower_install_dir, 'font-awesome', 'fonts'
-
-  # その他のbower_components
-  sprockets.append_path File.join "#{root}", bower_install_dir
-
-# Slim Embedded markdown engine ################################################
-  ::Slim::Embedded.set_default_options :markdown => markdown_extensions
-end
-
 
 ################################################################################
 # Page options, layouts, aliases and proxies
@@ -102,6 +67,20 @@ set :slim,
 ################################################################################
 # Markdown Engine
 ################################################################################
+
+markdown_extensions = {
+  # https://github.com/vmg/redcarpet#and-its-like-really-simple-to-use
+  no_intra_emphasis: true,   # no_intra_empasis の intra がemされないように
+  tables: true,              # tableを書けるように
+  fenced_code_blocks: true,  # GitHubスタイルの```rubyみたいなコードブロック
+  autolink: true,            # URLを自動的にリンクに
+  strikethrough: true,       # ~~で挟んだところをdelに
+  lax_spacing: true,         # HTML要素の前後に空行がなくても、HTMLとして解釈
+  space_after_headers: true, # ヘッダーの#の後ろにスペースを必須に
+  superscript: true,         # 1^2でsup
+  footnotes: true,           # [^1]とかで脚注を付けれるように
+  smartypants: true          # ...が…になったり
+}
 
 set :markdown_engine, :redcarpet
 set :markdown, markdown_extensions
@@ -174,4 +153,25 @@ configure :development do
   compass_config do |config|
     config.output_style = :expanded
   end
+end
+
+after_configuration do
+# Sprockets load path ###########################################################
+  # Bowerのインストール先ディレクトリをSprocketsのLoad Pathに追加する。
+  # 優先して読み込みたいディレクトリから順に追加してく。
+  bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
+  bower_install_dir = bower_config['directory']
+
+  # Foundation Scss
+  sprockets.append_path File.join "#{root}", bower_install_dir, 'foundation', 'scss'
+
+  # Font Awesome
+  sprockets.append_path File.join "#{root}", bower_install_dir, 'font-awesome', 'scss'
+  sprockets.append_path File.join "#{root}", bower_install_dir, 'font-awesome', 'fonts'
+
+  # その他のbower_components
+  sprockets.append_path File.join "#{root}", bower_install_dir
+
+# Slim Embedded markdown engine ################################################
+  ::Slim::Embedded.set_default_options :markdown => markdown_extensions
 end
