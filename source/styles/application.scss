@@ -69,11 +69,8 @@
  * Modules
  *------------------------------------*/
 
-/* ---------- Syntax Highlight ---------- */
-@import "module/syntax-highlight";
-
 /* ---------- Global Header ---------- */
-@import "module/global-header";
+@import "module/header";
 
 /* ---------- Main ---------- */
 @import "module/main";
@@ -82,9 +79,10 @@
 @import "module/sidebar";
 
 /* ---------- Footer ---------- */
-@import "module/global-footer";
-@import "module/copyright";
-@import "module/card-article";
+@import "module/footer";
+
+/* ---------- Syntax Highlight ---------- */
+@import "module/main/syntax-highlight";
 
 
 /*******************************************************************************

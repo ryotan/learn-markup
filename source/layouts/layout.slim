@@ -23,7 +23,7 @@ html[lang="ja"]
      -   * Tag Line
      -   * Global Menu
      ----------------------------------------------------------------------------/
-    header#global-header[role="banner"]
+    header.header[role="banner"]
       == partial "site-logo"
 
       /-- Global Menu --/
@@ -33,7 +33,7 @@ html[lang="ja"]
     /-----------------------------------------------------------------------------
      - MAIN CONTENTS
      ----------------------------------------------------------------------------/
-    main#main[role="main"]
+    main#main.main[role="main"]
       == yield
 
     /-----------------------------------------------------------------------------
@@ -44,7 +44,7 @@ html[lang="ja"]
      -   * Arxiv (year/month/date tree)
      -   * Tag Cloud
      ----------------------------------------------------------------------------/
-    aside#sidebar[role="complementary"]
+    aside.sidebar[role="complementary"]
       /-- Search Box --/
       section#search-box[role="search"]
         h1 Search

@@ -1,12 +1,12 @@
 @import "header/site-logo";
 @import "header/menu";
 
-#global-header {
+.header {
   .site-logo {
     @extend %site-logo;
   }
 
-  .global-menu {
+  .menu {
     @extend %menu;
   }
 }

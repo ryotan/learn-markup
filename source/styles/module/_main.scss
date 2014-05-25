@@ -1,3 +1,5 @@
-#main {
+@import "main/card-article";
+
+.main {
   @extend %main
 }
