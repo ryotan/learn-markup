@@ -22,14 +22,22 @@
  *------------------------------------*/
 
 /* ----- Base Colors ----- */
-$base-background: #fff;
-$base-color: #222;
-$base-link-color: #0053c9;
+// http://ironodata.info/rgb.php?color=2A83A2
+$text-color: rgb(7, 20, 26);
+$base-color: #fdfdfd;
+
+// ヘッダやロゴ色、リンク、見出しとか。全体の20%くらいになるといい。
+$main-color: rgb(42, 131, 162);
+
+// 重要なボタンとか。全体の5%くらいになるといい。
+$accent-color: rgb(163, 42, 131);
+
+$alert-color: rgb(163, 42, 71);
+$success-color: rgb(42, 163, 75);
+$warning-color: rgb(163, 135, 42);
+$info-color: rgb(75, 42, 163);
 
 /* ----- Base Borders & Box Shadows ----- */
-$base-border: 1px solid $base-color;
-$base-border-radius: 3px;
-$base-box-shadow: 0 1px 2px rgba($base-color, 0.25);
 
 /* ----- Base Content ----- */
 $base-font-family: 'Lucida Grande', 'YuGothic', '游ゴシック', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Meiryo', 'メイリオ', sans-serif;
@@ -53,13 +61,3 @@ $c-Huge-font-size:   $base-font-size * 1.2 * 1.2 * 1.2 * 1.2 * 1.2;
 /* ----- Layout ----- */
 $row-width: 1280px;
 $l-max-width: 1280px;
-
-$foreground-color: #40382e;
-$background-color: #fdfdfd;
-
-$primary-color: #40382e;
-$secondary-color: #16a6b6;
-$alert-color: #ee6657;
-$success-color: #16a6b6;
-$warning-color: #ee6557;
-$info-color: #bfbfbf;

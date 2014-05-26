@@ -68,7 +68,11 @@
   box-shadow: rgba(255, 255, 255, $white-op2) -1px 0 0 inset;
 }
 
-/* ---------- ズルい線 ---------- */
+/* ---------- ズルいテキストシャドウ ---------- */
+@mixin text-shadow-000($opacity : .4){
+  text-shadow: 1px -1px 0 rgba(0, 0, 0, $opacity);
+}
+
 @mixin text-shadow-fff($opacity : .7){
   text-shadow: -1px 1px 0 rgba(255, 255, 255, $opacity);
 }

@@ -21,7 +21,7 @@
       line-height: 1;
       margin: 0;
 
-      @include text-shadow-fff();
+      @include text-shadow-fff(1);
     }
 
     .title-link {
