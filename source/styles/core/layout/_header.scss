@@ -1,0 +1,18 @@
+@import "header/site-logo";
+@import "header/menu";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  .site-logo {
+    flex: 1 0 60%;
+    @extend %site-logo;
+  }
+
+  .menu {
+    flex: 1 0 35%;
+    @extend %menu;
+  }
+}

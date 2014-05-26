@@ -69,20 +69,11 @@
  * Modules
  *------------------------------------*/
 
-/* ---------- Global Header ---------- */
-@import "module/header";
-
-/* ---------- Main ---------- */
-@import "module/main";
-
-/* ---------- Sidebar ---------- */
-@import "module/sidebar";
-
-/* ---------- Footer ---------- */
-@import "module/footer";
-
 /* ---------- Syntax Highlight ---------- */
-@import "module/main/syntax-highlight";
+@import "module/syntax-highlight";
+
+/* ---------- Card style article ---------- */
+@import "module/card-article";
 
 
 /*******************************************************************************

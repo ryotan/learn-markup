@@ -20,23 +20,33 @@ body {
   flex-flow: row wrap;
 }
 
+/* ---------- Global Header ---------- */
+@import "layout/header";
+
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  flex: 1 0 100%;
 }
+
+/* ---------- Main ---------- */
+@import "layout/main";
 
 .main {
   flex: 1 0 65%;
-  margin: 10px;
+  margin: 0 5% 0 0;
 }
+
+/* ---------- Sidebar ---------- */
+@import "layout/sidebar";
 
 .sidebar {
   flex: 1 0 30%;
 }
 
+/* ---------- Footer ---------- */
+@import "layout/footer";
+
 .footer {
-  flex: 1 100%;
+  flex: 1 0 100%;
 }
 
 
