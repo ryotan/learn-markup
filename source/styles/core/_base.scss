@@ -27,3 +27,21 @@ body {
 /*------------------------------------*
  * Inline Content
  *------------------------------------*/
+
+/* ---------- Default Link Styles ---------- */
+$anchor-font-color: #5b92a4;
+$anchor-font-color-hover: scale-color($primary-color, $lightness: -14%);
+a {
+  color: $anchor-font-color;
+  text-decoration: none;
+  line-height: inherit;
+
+  &:hover,
+  &:focus {
+    color: $anchor-font-color-hover;
+  }
+
+  img {
+    border:none;
+  }
+}

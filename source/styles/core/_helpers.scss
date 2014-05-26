@@ -47,6 +47,32 @@
  * Mixins
  *------------------------------------*/
 
+/* ---------- ズルい線 ---------- */
+@mixin thalweg-top($op1: .2, $op2: .3){
+  border-top: 1px solid rgba(0, 0, 0, $op1);
+  @include box-shadow(rgba(255, 255, 255, $op2) 0 1px 0 inset);
+}
+
+@mixin thalweg-bottom($op1: .2, $op2: .3){
+  border-bottom: 1px solid rgba(0, 0, 0, $op1);
+  @include box-shadow(rgba(255, 255, 255, $op2)0 1px 0);
+}
+
+@mixin thalweg-left($op1: .2, $op2: .3){
+  border-left: 1px solid rgba(0, 0, 0, $op1);
+  @include box-shadow (rgba(255, 255, 255, $op2) -1px 0 0);
+}
+
+@mixin thalweg-right($op1: .2, $op: .3){
+  border-right: 1px solid rgba(0, 0, 0, $op1);
+  @include box-shadow(rgba(255, 255, 255, $op2) -1px 0 0 inset);
+}
+
+/* ---------- ズルい線 ---------- */
+@mixin text-shadow-fff($op : .7){
+  text-shadow: -1px 1px rgba(0, 0, 0, $op);
+}
+
 
 /*------------------------------------*
  * Keyframes for animation
