@@ -130,15 +130,15 @@ partialsの中を見に行っちゃうし。。。
  * INBOX
  *
  ******************************************************************************/
-$primary-color: #008CBA;
-$secondary-color: #e7e7e7;
-$alert-color: #f04124;
-$success-color: #43AC6A;
-$warning-color: #f08a24;
-$info-color: #a0d3e8;
+$primary-color: #40382e;
+$secondary-color: #16a6b6;
+$alert-color: #ee6657;
+$success-color: #16a6b6;
+$warning-color: #ee6557;
+$info-color: #bfbfbf;
 
 $anchor-text-decoration: none;
-$anchor-font-color: $primary-color;
+$anchor-font-color: #5b92a4;
 $anchor-font-color-hover: scale-color($primary-color, $lightness: -14%);
 
 /* Default Link Styles */
@@ -151,4 +151,9 @@ a {
   &:focus { color: $anchor-font-color-hover; }
 
   img { border:none; }
+}
+
+body {
+  color: $primary-color;
+  background-color: #fffffe;
 }
