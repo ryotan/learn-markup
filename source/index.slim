@@ -22,7 +22,7 @@ section
               = article.date.strftime('%b %e')
             article
               = article.summary(250)
-            = link_to "More ...", article
+            = link_to "More ...", article, class: "link-to-article"
           - if articles[1]
             - article = articles[1]
             section.card-article
@@ -32,7 +32,7 @@ section
                 = article.date.strftime('%b %e')
               article
                 = article.summary(250)
-              = link_to "More ...", article
+              = link_to "More ...", article, class: "link-to-article"
           - else
             section.card
 
