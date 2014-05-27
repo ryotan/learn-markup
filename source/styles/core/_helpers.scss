@@ -77,6 +77,23 @@
   text-shadow: -1px 1px 0 rgba(255, 255, 255, $opacity);
 }
 
+/* ---------- ズルい枠線 ---------- */
+@mixin shadow-border($shadow: .15) {
+  box-shadow: rgba(0, 0, 0, $shadow) 0 0 2px;
+}
+
+/* ---------- 凹BOX ---------- */
+@mixin deboss-box($border: .1, $shadow: .05, $highlight: .8) {
+  border: 1px solid rgba(0, 0, 0, $border);
+  box-shadow: rgba(0, 0, 0, $shadow) -1px 1px 2px inset, rgba(255, 255, 255, $highlight) -1px 1px 0;
+}
+
+/* ---------- 凸BOX ---------- */
+@mixin emboss-box($border: .1, $shadow: .05, $highlight: .5) {
+  border: 1px solid rgba(0, 0, 0, $border);
+  box-shadow: rgba(0, 0, 0, $shadow) -1px 1px 0, rgba(255, 255, 255, $highlight) -1px 1px 0 inset;
+}
+
 
 /*------------------------------------*
  * Keyframes for animation

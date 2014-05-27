@@ -4,14 +4,20 @@
 
   %card {
     width: 45%;
+
+    padding: 8px;
+    margin: 10px;
   }
 
   .card-article {
     @extend %card;
+    @include emboss-box();
+
+    border-radius: 6px;
+
+    background-color: $base-color;
 
     position: relative;
-
-    border: 1px solid #ccc;
 
     h1 {
         font-size: 20px;
