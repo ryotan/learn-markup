@@ -1,15 +1,15 @@
-/*******************************************************************************
- *
- * Application CSS Settings
- *   : Organized according to [MVCSS](http://mvcss.github.io/) style.
- *
- * 変数値とかをまとめておくファイル。
- *
- * * @font-faceでのフォント定義
- * * 変数
- * は、ひとつのファイルにまとめといたほうが見通しがいいって。
- *
- ******************************************************************************/
+/*
+Application CSS Settings
+  : Organized according to [MVCSS](http://mvcss.github.io/) style.
+
+変数値とかをまとめておくファイル。
+
+* @font-faceでのフォント定義
+* 変数
+
+は、ひとつのファイルにまとめといたほうが見通しがいいって。
+
+*/
 @charset "utf-8";
 
 /*------------------------------------*
@@ -21,10 +21,15 @@
  * Variables
  *------------------------------------*/
 
-/* ----- Base Colors ----- */
-// http://ironodata.info/rgb.php?color=2A83A2
+/*
+Base Colors
+
+テキストの標準色は、`$text-color`を使用する。
+背景色が必要な場合は、`$base-color`を使う。
+*/
 $text-color: rgb(7, 20, 26);
-$base-color: #fdfdfd;
+$base-color: #fefdfb;
+$background: image-url("../images/blizzard.png");
 
 // ヘッダやロゴ色、リンク、見出しとか。全体の20%くらいになるといい。
 $main-color: rgb(42, 131, 162);
