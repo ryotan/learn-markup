@@ -16,23 +16,23 @@ section
         .card-articles
           - article = articles[0]
           section.card-article
-            = link_to article
+            h2.article-title
+              = article.title
+            span
+              = article.date.strftime('%b %e')
+            article
+              = article.summary(250)
+            = link_to "More ...", article
+          - if articles[1]
+            - article = articles[1]
+            section.card-article
               h2
                 = article.title
               span
                 = article.date.strftime('%b %e')
               article
                 = article.summary(250)
-          - if articles[1]
-            - article = articles[1]
-            section.card-article
-              = link_to article
-                h2
-                  = article.title
-                span
-                  = article.date.strftime('%b %e')
-                article
-                  = article.summary(250)
+              = link_to "More ...", article
           - else
             section.card
 

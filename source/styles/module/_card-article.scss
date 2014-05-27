@@ -2,24 +2,35 @@
   display: flex;
   justify-content: space-around;
 
-  .card {
+  %card {
     width: 45%;
   }
 
   .card-article {
-    @extend .card;
+    @extend %card;
+
+    position: relative;
 
     border: 1px solid #ccc;
 
-    h1{
+    h1 {
         font-size: 20px;
         font-weight: bold;
         margin-top: 5px;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
     }
 
     h2 {
       display: none;
+    }
+
+    a {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
     }
   }
 }
