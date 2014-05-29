@@ -2,6 +2,7 @@
 # Blog settings
 ################################################################################
 
+require 'tzinfo'
 Time.zone = 'Tokyo'
 
 activate :blog, {
@@ -99,6 +100,28 @@ activate :syntax, {
 # Autoprefixer #################################################################
 # Add vendor specific css prefixes. (middleman-autoprefixer)
 activate :autoprefixer
+
+
+after_configuration do
+# Sprockets load path ###########################################################
+  # Bowerのインストール先ディレクトリをSprocketsのLoad Pathに追加する。
+  # 優先して読み込みたいディレクトリから順に追加してく。
+  bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
+  bower_install_dir = bower_config['directory']
+
+  # Foundation Scss
+  sprockets.append_path File.join "#{root}", bower_install_dir, 'foundation', 'scss'
+
+  # Font Awesome
+  sprockets.append_path File.join "#{root}", bower_install_dir, 'font-awesome', 'scss'
+  sprockets.append_path File.join "#{root}", bower_install_dir, 'font-awesome', 'fonts'
+
+  # その他のbower_components
+  sprockets.append_path File.join "#{root}", bower_install_dir
+
+# Slim Embedded markdown engine ################################################
+  ::Slim::Embedded.set_default_options :markdown => markdown_extensions
+end
 
 
 ################################################################################
