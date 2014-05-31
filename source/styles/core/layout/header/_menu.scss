@@ -3,10 +3,9 @@
     display: none;
   }
   .menu-items {
+    @extend %container;
     list-style: none;
     margin: 0;
-    display: flex;
-    flex-flow: row wrap;
 
     .menu-item {
       width: rem(120);

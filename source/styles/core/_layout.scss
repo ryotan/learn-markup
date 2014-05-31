@@ -8,23 +8,48 @@
  ******************************************************************************/
 @charset "utf-8";
 
+/*
+モジュールを配置していくコンテナ。
+*/
+%container {
+  // デフォルトのレイアウト（960px〜1280px）
+  display: flex;
+  flex-flow: row wrap;
+
+  @media screen and (min-width: 1280px) {
+  }
+
+  @media screen and (min-width: 640px) and (max-width: 960px) {
+  }
+
+  @media screen and (min-width: 472px) and (max-width: 640px) {
+  }
+
+  @media screen and (max-width: 472px) {
+  }
+}
+
+%container-justify {
+  @extend container;
+  justify-content: space-between;
+}
+
+
 /*------------------------------------*
  * Basic Components
  *------------------------------------*/
 body {
-  max-width: $l-max-width;
-  margin: auto;
+  @extend %container-justify;
 
-  display: flex;
-  justify-content: space-between;
-  flex-flow: row wrap;
+  margin: auto;
+  max-width: $l-max-width;
 }
 
 /* ---------- Global Header ---------- */
 @import "layout/header";
 
 .header {
-  flex: 1 0 100%;
+  @extend %container-side-by-side;
 }
 
 /* ---------- Main ---------- */
