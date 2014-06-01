@@ -1,79 +1,209 @@
-/*******************************************************************************
- *
- * Application layout CSS
- *   : Organized according to [MVCSS](http://mvcss.github.io/) style.
- *
- * アプリケーションのLayout(margin,padding,sizing,positioning)を定義するファイル。
- *
- ******************************************************************************/
+/*
+# Application layout CSS
+
+Organized according to [MVCSS](http://mvcss.github.io/) style.
+
+アプリケーションのLayout(margin,padding,sizing,positioning)を定義するファイル。
+
+レイアウトは、5段階に分けてレスポンシブに配置する。デフォルトは、960〜1280px
+*/
+/*
+# 960px ≦ width < 1280px
+
+  * ヘッダー：100%
+  * メイン：960px (margin: 0 auto)
+  * サイドバー：960px (margin: 0 auto)
+  * フッター：100%
+
+  indexは記事2列。記事幅は480px（両サイドマージン自動）。サイドバーは下で100%。
+*/
 @charset "utf-8";
 
 /*
-モジュールを配置していくコンテナ。
+# デフォルトサイズのレイアウト。
 */
-%container {
-  // デフォルトのレイアウト（960px〜1280px）
+.page-container {
   display: flex;
   flex-flow: row wrap;
 
-  @media screen and (min-width: 1280px) {
+  margin: auto;
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+}
+
+.main {
+  margin: 0 auto;
+  width: rem(960);
+}
+
+.sidebar {
+  margin: 0 auto;
+  width: rem(960);
+}
+
+.footer {
+  width: 100%;
+}
+
+/*
+# 1280px ≦ width
+
+* ヘッダー：1280px
+* メイン：960px (margin: 0 8px)
+* サイドバー：296px (padding: 0 0 0 8px)
+* フッター：1280px
+*/
+@media screen and (min-width: 1280px) {
+  .page-container {
+    width: rem(1280);
   }
 
-  @media screen and (min-width: 640px) and (max-width: 960px) {
+  .header {
+    width: rem(1280);
   }
 
-  @media screen and (min-width: 472px) and (max-width: 640px) {
+  .main {
+    width: rem(960);
+    padding: 0 rem(8);
   }
 
-  @media screen and (max-width: 472px) {
+  .sidebar {
+    width: rem(296);
+    padding: 0 0 0 rem(8);
+  }
+
+  .footer {
+    width: rem(1280);
+  }
+}
+/*
+# 640px ≦ width < 960px
+
+  * ヘッダー：100%
+  * メイン：100% (margin: 0 0)
+  * サイドバー：100% (margin: 0 0)
+  * フッター：100%
+
+  indexは記事2列。記事幅は(w-16)/2（両サイドマージンなし）。サイドバーは下で100%。
+
+*/
+@media screen and (min-width: 640px) and (max-width: 959px) {
+  .page-container {
+    width: 100%;
+  }
+
+  .header {
+    width: 100%;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .footer {
+    width: 100%;
   }
 }
 
-%container-justify {
-  @extend container;
-  justify-content: space-between;
+/*
+# 472px ≦ width < 640px
+
+  * ヘッダー：100%
+  * メイン：472px (margin: 0 auto)
+  * サイドバー：472px (margin: 0 auto)
+  * フッター：100%
+
+  indexは記事1列。記事幅は472px（両サイドマージン自動）。サイドバーは下で100%。
+*/
+@media screen and (min-width: 472px) and (max-width: 639px) {
+  .page-container {
+    width: 100%;
+  }
+
+  .header {
+    width: 100%;
+  }
+
+  .main {
+    width: rem(472);
+  }
+
+  .sidebar {
+    width: rem(472);
+  }
+
+  .footer {
+    width: 100%;
+  }
+}
+
+/*
+# 320px ≦ width < 472px
+
+  * ヘッダー：100%
+  * メイン：100%
+  * サイドバー：100%
+  * フッター：100%
+
+  indexは記事1列。記事幅は100%（両サイドマージンなし）。サイドバーは下で100%。
+*/
+@media screen and (max-width: 471px) {
+  .page-container {
+    width: 100%;
+  }
+
+  .header {
+    width: 100%;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .footer {
+    width: 100%;
+  }
 }
 
 
 /*------------------------------------*
  * Basic Components
  *------------------------------------*/
-body {
-  @extend %container-justify;
-
-  margin: auto;
-  max-width: $l-max-width;
-}
-
 /* ---------- Global Header ---------- */
 @import "layout/header";
 
-.header {
-  @extend %container-side-by-side;
-}
-
 /* ---------- Main ---------- */
-@import "layout/main";
+//@import "layout/main";
 
-.main {
-  flex: 1 0 65%;
-  margin: 0 5% 0 0;
-}
+//.main {
+//  flex: 1 0 65%;
+//  margin: 0 5% 0 0;
+//}
 
 /* ---------- Sidebar ---------- */
-@import "layout/sidebar";
+//@import "layout/sidebar";
 
-.sidebar {
-  flex: 1 0 30%;
-}
+//.sidebar {
+//  flex: 1 0 30%;
+//}
 
 /* ---------- Footer ---------- */
-@import "layout/footer";
+//@import "layout/footer";
 
-.footer {
-  flex: 1 0 100%;
-}
-
+//.footer {
+//  flex: 1 0 100%;
+//}
 
 /*------------------------------------*
  * Card

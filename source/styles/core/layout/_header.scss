@@ -1,19 +1,68 @@
-@import "header/site-logo";
-@import "header/menu";
-
+/*
+# ヘッダーのレイアウト
+*/
 .header {
-
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 
   .site-logo {
     flex: 1 0 60%;
-    @extend %site-logo;
+    padding: rem(10);
+
+    .logo-img {
+      margin: 0 rem(10) 0 0;
+
+      img {
+        max-width: rem(100);
+        vertical-align: middle;
+      }
+    }
+
+    .title-block {
+      display: inline-block;
+      // 画像といい感じに並んでるように見えるように、少しmargin-topを取る。
+      //margin: rem(5) 0 0 0;
+      vertical-align: middle;
+
+      .title {
+        line-height: 1;
+        margin: 0;
+
+        @include text-shadow-fff(1);
+      }
+
+      .title-link {
+        color: #333333;
+      }
+
+      .tagline {
+        color: #999999;
+        font-size: $c-Large-font-size;
+        line-height: 1;
+        margin: rem(8) 0 0 0;
+      }
+    }
   }
 
   .menu {
     flex: 1 0 35%;
-    @extend %menu;
+    h1 {
+      display: none;
+    }
+    .menu-items {
+      display: flex;
+      justify-content: flex-end;
+      list-style: none;
+      margin: 0;
+
+      .menu-item {
+        width: rem(120);
+        padding: rem(10);
+        text-align: center;
+
+        @extend %c-h4
+      }
+    }
   }
 }
