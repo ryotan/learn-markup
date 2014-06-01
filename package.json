@@ -1,0 +1,21 @@
+{
+  "name": "blog",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ryotan/blog-theme.git"
+  },
+  "author": "ryotan",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ryotan/blog-theme/issues"
+  },
+  "homepage": "http://b.itr0.pw",
+  "devDependencies": {
+    "gulp": "^3.7.0",
+    "gulp-connect": "^2.0.5",
+    "gulp-livereload": "^1.5.0",
+    "gulp-styledocco": "0.0.1",
+    "styledocco": "^0.6.6"
+  }
+}
