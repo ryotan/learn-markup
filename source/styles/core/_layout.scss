@@ -3,30 +3,43 @@
 
 Organized according to [MVCSS](http://mvcss.github.io/) style.
 
-アプリケーションのLayout(margin,padding,sizing,positioning)を定義するファイル。
+アプリケーションのLayout (margin,padding,sizing,positioning) を定義するファイル。
 
-レイアウトは、5段階に分けてレスポンシブに配置する。デフォルトは、960〜1280px
-*/
-/*
-# 960px ≦ width < 1280px
-
-  * ヘッダー：100%
-  * メイン：960px (margin: 0 auto)
-  * サイドバー：960px (margin: 0 auto)
-  * フッター：100%
-
-  indexは記事2列。記事幅は480px（両サイドマージン自動）。サイドバーは下で100%。
+レイアウトは、5段階に分けてレスポンシブに配置する。デフォルトは、960〜1280px。
 */
 @charset "utf-8";
 
 /*
-# デフォルトサイズのレイアウト。
+# 960px ≦ width < 1280px
+
+コンテンツ全体は100%で画面いっぱいに表示する。
+
+ヘッダーとフッターは画面いっぱいに広げて、メイン領域とサイドバーは固定幅にする。
+
+メイン領域とサイドバー領域を横に並べると、バランスよく配置できないから、縦に並べる。
+
+## ヘッダー
+
+ヘッダーは100%で配置する。
+
+ロゴとメニューは横に並べて配置する。
+
+## メイン
+
+メイン領域は960pxで中央に配置する。
+
+## サイドバー
+
+サイドバーは960pxでメイン領域の下に中央に配置する。
+
+## フッター
+
+フッターは100%で配置する。
 */
 .page-container {
   display: flex;
   flex-flow: row wrap;
 
-  margin: auto;
   width: 100%;
 }
 
@@ -51,14 +64,25 @@ Organized according to [MVCSS](http://mvcss.github.io/) style.
 /*
 # 1280px ≦ width
 
-* ヘッダー：1280px
-* メイン：960px (margin: 0 8px)
-* サイドバー：296px (padding: 0 0 0 8px)
+コンテンツ全体を固定幅で画面中央に配置する。
+
+## ヘッダー
+ヘッダーは1280pxで、画面中央に配置する。
+
+## メイン
+
+メイン領域は960pxで、画面中央に配置する。
+
+両側に8pxのpaddingを取る。
+
+## サイドバー
+サイドバーは296px (padding: 0 0 0 8px)
 * フッター：1280px
 */
 @media screen and (min-width: 1280px) {
   .page-container {
     width: rem(1280);
+    margin: auto;
   }
 
   .header {
