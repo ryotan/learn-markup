@@ -45,6 +45,10 @@ Organized according to [MVCSS](http://mvcss.github.io/) style.
 
 .header {
   width: 100%;
+
+  .menu-items {
+    padding: 0;
+  }
 }
 
 .main {
@@ -67,19 +71,27 @@ Organized according to [MVCSS](http://mvcss.github.io/) style.
 コンテンツ全体を固定幅で画面中央に配置する。
 
 ## ヘッダー
+
 ヘッダーは1280pxで、画面中央に配置する。
 
 ## メイン
 
-メイン領域は960pxで、画面中央に配置する。
+メイン領域は960pxで、画面左側に配置する。
 
 両側に8pxのpaddingを取る。
 
 ## サイドバー
-サイドバーは296px (padding: 0 0 0 8px)
-* フッター：1280px
+
+サイドバーは296pxで、メイン領域の右に配置する。
+
+左側に8pxのpaddingを取る。
+
+## フッター
+
+フッターは1280pxで、画面中央に配置する。
+
 */
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1300px) {
   .page-container {
     width: rem(1280);
     margin: auto;
@@ -121,6 +133,10 @@ Organized according to [MVCSS](http://mvcss.github.io/) style.
 
   .header {
     width: 100%;
+
+    .menu-items {
+      flex-flow: column;
+    }
   }
 
   .main {
@@ -153,6 +169,14 @@ Organized according to [MVCSS](http://mvcss.github.io/) style.
 
   .header {
     width: 100%;
+
+    .logo-img {
+      display: none;
+    }
+
+    .menu-items {
+      flex-flow: column;
+    }
   }
 
   .main {
@@ -185,6 +209,14 @@ Organized according to [MVCSS](http://mvcss.github.io/) style.
 
   .header {
     width: 100%;
+
+    .logo-img {
+      display: none;
+    }
+
+    .menu-items {
+      flex-flow: column;
+    }
   }
 
   .main {
