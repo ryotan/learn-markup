@@ -1,3 +1,4 @@
+# coding: utf-8
 ################################################################################
 # Blog settings
 ################################################################################
@@ -110,7 +111,7 @@ after_configuration do
   bower_install_dir = bower_config['directory']
 
   # Foundation Scss
-  sprockets.append_path File.join "#{root}", bower_install_dir, 'foundation', 'scss'
+  sprockets.append_path File.join "#{root}", bower_install_dir, 'normalize_scss'
 
   # Font Awesome
   sprockets.append_path File.join "#{root}", bower_install_dir, 'font-awesome', 'scss'
@@ -120,7 +121,7 @@ after_configuration do
   sprockets.append_path File.join "#{root}", bower_install_dir
 
 # Slim Embedded markdown engine ################################################
-  ::Slim::Embedded.set_default_options :markdown => markdown_extensions
+  ::Slim::Embedded.set_options :markdown => markdown_extensions
 end
 
 
@@ -185,8 +186,8 @@ after_configuration do
   bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
   bower_install_dir = bower_config['directory']
 
-  # Foundation Scss
-  sprockets.append_path File.join "#{root}", bower_install_dir, 'foundation', 'scss'
+  # Normalize Scss
+  sprockets.append_path File.join "#{root}", bower_install_dir, 'normalize-scss'
 
   # Font Awesome
   sprockets.append_path File.join "#{root}", bower_install_dir, 'font-awesome', 'scss'
@@ -196,5 +197,5 @@ after_configuration do
   sprockets.append_path File.join "#{root}", bower_install_dir
 
 # Slim Embedded markdown engine ################################################
-  ::Slim::Embedded.set_default_options :markdown => markdown_extensions
+  ::Slim::Embedded.set_options :markdown => markdown_extensions
 end
